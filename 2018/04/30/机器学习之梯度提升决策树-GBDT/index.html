@@ -129,14 +129,14 @@
 <meta property="og:site_name" content="谓之小一">
 <meta property="og:description" content="1.GBDT算法简介GBDT(Gradient Boosting Decision Tree)是一种迭代的决策树算法，由多棵决策树组成，所有树的结论累加起来作为最终答案，我们根据其名字(Gradient Boosting Decision Tree)来展开推导过程。决策树(Decision Tree)我们已经不再陌生，在之前介绍到的机器学习之决策树(C4.5算法)、机器学习之分类与回归树(CART">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/04/30/机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树图片01.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/04/30/机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树图片02.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/04/30/机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树图片01.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/04/30/机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树图片02.png">
 <meta property="og:image" content="http://p66yyzg4i.bkt.clouddn.com/%E6%8E%A8%E5%B9%BF.png">
 <meta property="og:updated_time" content="2018-06-07T17:52:51.291Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习之梯度提升决策树(GBDT)">
 <meta name="twitter:description" content="1.GBDT算法简介GBDT(Gradient Boosting Decision Tree)是一种迭代的决策树算法，由多棵决策树组成，所有树的结论累加起来作为最终答案，我们根据其名字(Gradient Boosting Decision Tree)来展开推导过程。决策树(Decision Tree)我们已经不再陌生，在之前介绍到的机器学习之决策树(C4.5算法)、机器学习之分类与回归树(CART">
-<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/04/30/机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树图片01.png">
+<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/04/30/机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树图片01.png">
 
 
 
@@ -474,7 +474,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数"></span>
+                <span title="本文字数">7.5k</span>
               
 
               
@@ -488,7 +488,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长"></span>
+                <span title="阅读时长">12 分钟</span>
               
             </div>
           
@@ -510,12 +510,12 @@
       
         <h3 id="1-GBDT算法简介"><a href="#1-GBDT算法简介" class="headerlink" title="1.GBDT算法简介"></a>1.GBDT算法简介</h3><p><strong>GBDT(Gradient Boosting Decision Tree)</strong>是一种迭代的决策树算法，由多棵决策树组成，所有树的结论累加起来作为最终答案，我们根据其名字(<strong>Gradient Boosting Decision Tree</strong>)来展开推导过程。决策树(<strong>Decision Tree</strong>)我们已经不再陌生，在之前介绍到的<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483837&amp;idx=1&amp;sn=f73ca53c5d50f7cd090ba3bc0e17c56b&amp;chksm=fcd7d24bcba05b5d157f93577bc7d41856dc4e19374c20f30167e9bfd9dc0956ed09d28431f3#rd" target="_blank" rel="noopener">机器学习之决策树(C4.5算法)</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483841&amp;idx=1&amp;sn=b67c59dc4284f0b363b2de881c5da729&amp;chksm=fcd7d237cba05b21d80927e03e8b875e080cd0722496a5779eb3c8d285ea520902e813252ce0#rd" target="_blank" rel="noopener">机器学习之分类与回归树(CART)</a>、<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483845&amp;idx=1&amp;sn=5484385408d694ba03a8bdc3a03c2263&amp;chksm=fcd7d233cba05b25b0f65289f8416466df9124b019b60704b4e3875d9864ff90e3388c666f66#rd" target="_blank" rel="noopener">机器学习之随机森林</a>中已经多次接触，在此不再赘述。但<strong>Boosting</strong>和<strong>Gradient</strong>方法是什么含义呢，又如何跟Decision Tree相结合?首先我们来了解集成学习中的Boosting概念。</p>
 <h4 id="1-1集成学习之Boosting"><a href="#1-1集成学习之Boosting" class="headerlink" title="1.1集成学习之Boosting"></a>1.1集成学习之Boosting</h4><p>集成学习不是单独的机器学习方法，而是通过构建并结合多个机器学习器来完成任务，集成学习可以用于分类问题集成、回归问题集成、特征选取集成、异常点检测集成等方面。其思想是对于训练数据集，我们通过训练若干个个体学习器，通过一定的结合策略形成一个强学习器，以达到博采众长的目的。在<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483845&amp;idx=1&amp;sn=5484385408d694ba03a8bdc3a03c2263&amp;chksm=fcd7d233cba05b25b0f65289f8416466df9124b019b60704b4e3875d9864ff90e3388c666f66#rd" target="_blank" rel="noopener">机器学习之随机森林</a>中我们已经用到集成学习中的bagging方法，此处我们详细介绍集成学习中的Boosting方法。</p>
-<p><img src="机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树图片01.png" alt="机器学习之梯度提升决策树图片01"></p>
+<p><img src="/2018/04/30/机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树图片01.png" alt="机器学习之梯度提升决策树图片01"></p>
 <p>从上图可以看出，Boosting算法的工作机制是从训练集用初始权重训练出一个弱学习器1，根据弱学习器的学习误差率来更新训练样本的权重，使得之前弱学习器1中学习误差率高的训练样本点权重变高。然后这些误差率高的点在弱学习器2中得到更高的重视，利用调整权重后的训练集来训练弱学习器2。如此重复进行，直到弱学习器数达到事先指定的数目T，最终将这T个弱学习器通过集合策略进行整合，得到最终的强学习器。了解Boosting方法后，我们便可将Boosting方法和Decision Tree相结合便可得到<strong>Boosting Decision Tree</strong>。</p>
 <h4 id="1-2-Boosting-Decision-Tree"><a href="#1-2-Boosting-Decision-Tree" class="headerlink" title="1.2 Boosting Decision Tree"></a>1.2 Boosting Decision Tree</h4><p><strong>提升树(Boosting Decision Tree)</strong>由于输出样本是连续值，因此我们通过迭代多棵回归树来共同决策。在<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483841&amp;idx=1&amp;sn=b67c59dc4284f0b363b2de881c5da729&amp;chksm=fcd7d237cba05b21d80927e03e8b875e080cd0722496a5779eb3c8d285ea520902e813252ce0#rd" target="_blank" rel="noopener">机器学习之分类与回归树(CART)</a>中我们已经详细推导分类树与回归树的构建过程，在此不再赘述。</p>
 <p>我们利用平方误差来表示损失函数，其中每一棵回归树学习的是之前所有树的结论和残差，拟合得到一个当前的残差回归树。其中残差=真实值-预测值，提升树即是整个迭代过程生成的回归树的累加。</p>
 <p>我们通过以下例子来详解算法过程，希望通过训练提升树来预测年龄。训练集是4个人，A、B、C、D年龄分别是14、16、24、26。样本中有购物金额、上网时长、经常到百度知道提问等特征。提升树的过程如下</p>
-<p><img src="机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树图片02.png" alt="机器学习之梯度提升决策树图片02"></p>
+<p><img src="/2018/04/30/机器学习之梯度提升决策树-GBDT/机器学习之梯度提升决策树图片02.png" alt="机器学习之梯度提升决策树图片02"></p>
 <p>我们能够直观的看到，预测值等于所有树值的累加，如<strong>A的预测值=树1左节点(15)+树2左节点(-1)=14</strong>。因此给定当前决策树模型ft-1(x)，只需拟合决策树的残差，便可迭代得到提升树，算法过程如下</p>
 <ul>
 <li>初始化$f_0(x)=0$</li>
@@ -891,7 +891,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数"></span>
+    <span title="站点总字数">138k</span>
   
 
   

@@ -129,15 +129,15 @@
 <meta property="og:site_name" content="谓之小一">
 <meta property="og:description" content="1.K-Means简介K均值(K-Means)算法是无监督的聚类方法，实现起来比较简单，聚类效果也比较好，因此应用很广泛。K-Means算法针对不同应用场景，有不同方面的改进。我们从最传统的K-Means算法讲起，然后在此基础上介绍初始化质心优化K-Means++算法，距离计算优化Elkan K-Means算法和大样本情况下Mini Batch K-Means算法。 K-Means算法的思想很简单">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/05/12/机器学习之K均值-K-Means-算法/机器学习之K均值-K-Means-算法/机器学习值K均值算法图片01.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/05/12/机器学习之K均值-K-Means-算法/机器学习之K均值-K-Means-算法/机器学习值K均值算法图片02.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/05/12/机器学习之K均值-K-Means-算法/机器学习之K均值-K-Means-算法/机器学习值K均值算法图片03.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/05/12/机器学习之K均值-K-Means-算法/机器学习值K均值算法图片01.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/05/12/机器学习之K均值-K-Means-算法/机器学习值K均值算法图片02.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/05/12/机器学习之K均值-K-Means-算法/机器学习值K均值算法图片03.png">
 <meta property="og:image" content="http://p66yyzg4i.bkt.clouddn.com/%E6%8E%A8%E5%B9%BF.png">
 <meta property="og:updated_time" content="2018-06-07T17:52:51.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习之K均值(K-Means)算法">
 <meta name="twitter:description" content="1.K-Means简介K均值(K-Means)算法是无监督的聚类方法，实现起来比较简单，聚类效果也比较好，因此应用很广泛。K-Means算法针对不同应用场景，有不同方面的改进。我们从最传统的K-Means算法讲起，然后在此基础上介绍初始化质心优化K-Means++算法，距离计算优化Elkan K-Means算法和大样本情况下Mini Batch K-Means算法。 K-Means算法的思想很简单">
-<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/05/12/机器学习之K均值-K-Means-算法/机器学习之K均值-K-Means-算法/机器学习值K均值算法图片01.png">
+<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/05/12/机器学习之K均值-K-Means-算法/机器学习值K均值算法图片01.png">
 
 
 
@@ -475,7 +475,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数"></span>
+                <span title="本文字数">3.7k</span>
               
 
               
@@ -489,7 +489,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长"></span>
+                <span title="阅读时长">6 分钟</span>
               
             </div>
           
@@ -520,7 +520,7 @@
 <li>如图(e)所示：重复图(c)(d)过程，标记每个样本点的类别为距离质心最近的类别，重新划分得到两个簇C1和C2。</li>
 <li>如图(f)所示：直到质心不再改变后完成迭代，最终得到两个簇C1和C2。</li>
 </ul>
-<p><img src="机器学习之K均值-K-Means-算法/机器学习值K均值算法图片01.png" alt="机器学习值K均值算法图片01"></p>
+<p><img src="/2018/05/12/机器学习之K均值-K-Means-算法/机器学习值K均值算法图片01.png" alt="机器学习值K均值算法图片01"></p>
 <h3 id="2-K-Means算法流程"><a href="#2-K-Means算法流程" class="headerlink" title="2.K-Means算法流程"></a>2.K-Means算法流程</h3><p>假设输入样本集$D={x_1,x_2,…,x_m}$，聚类簇数为K，最大迭代次数为N。输出的簇划分为$C={C_1,C_2,…,C_m}$。</p>
 <ul>
 <li><p>从数据集D中随机选择K个样本作为初始的质心向量$ \mu={ \mu_1,\mu_2,\mu_3,…,\mu_k }$。</p>
@@ -568,9 +568,9 @@
 <p>Mini Batch K-Means可以避免样本量太大带来的计算问题，算法收敛速度也能够加快，当然带来的代价就是我们的聚类精确度降低。为增加算法的准确性，我们可以多训练几次Mini Batch K-Means算法，用不同的随机采样集来得到聚类簇，选择其中最优的聚类簇。</p>
 <h3 id="6-Sklearn实现K-Means算法"><a href="#6-Sklearn实现K-Means算法" class="headerlink" title="6.Sklearn实现K-Means算法"></a>6.Sklearn实现K-Means算法</h3><p>我们经常需要通过改变参数来让模型达到聚类结果，具体参数设置可参考<a href="http://scikit-learn.org/stable/modules/generated/sklearn.cluster.KMeans.html" target="_blank" rel="noopener">sklearn官方教程</a>。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.cluster <span class="keyword">import</span> KMeans</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment">#load iris</span></span><br><span class="line">iris=load_iris()</span><br><span class="line">X=iris.data[:,:<span class="number">2</span>]</span><br><span class="line">print(X.shape)</span><br><span class="line"><span class="comment">#150,2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#plot data</span></span><br><span class="line">plt.figure()</span><br><span class="line">plt.scatter(X[:,<span class="number">0</span>],X[:,<span class="number">1</span>],c=<span class="string">'blue'</span>,</span><br><span class="line">            marker=<span class="string">'o'</span>,label=<span class="string">'point'</span>)</span><br><span class="line">plt.legend(loc=<span class="number">2</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="机器学习之K均值-K-Means-算法/机器学习值K均值算法图片02.png" alt="机器学习值K均值算法图片02"></p>
+<p><img src="/2018/05/12/机器学习之K均值-K-Means-算法/机器学习值K均值算法图片02.png" alt="机器学习值K均值算法图片02"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># fit data</span></span><br><span class="line">kmeans=KMeans(n_clusters=<span class="number">3</span>)</span><br><span class="line">kmeans.fit(X)</span><br><span class="line">label_pred=kmeans.labels_</span><br><span class="line"></span><br><span class="line"><span class="comment">#plot answer</span></span><br><span class="line">plt.figure()</span><br><span class="line">x0 = X[label_pred == <span class="number">0</span>]</span><br><span class="line">x1 = X[label_pred == <span class="number">1</span>]</span><br><span class="line">x2 = X[label_pred == <span class="number">2</span>]</span><br><span class="line">plt.scatter(x0[:, <span class="number">0</span>], x0[:, <span class="number">1</span>], c = <span class="string">"red"</span>,</span><br><span class="line">            marker=<span class="string">'o'</span>, label=<span class="string">'label0'</span>)</span><br><span class="line">plt.scatter(x1[:, <span class="number">0</span>], x1[:, <span class="number">1</span>], c = <span class="string">"green"</span>,</span><br><span class="line">            marker=<span class="string">'*'</span>, label=<span class="string">'label1'</span>)</span><br><span class="line">plt.scatter(x2[:, <span class="number">0</span>], x2[:, <span class="number">1</span>], c = <span class="string">"blue"</span>,</span><br><span class="line">            marker=<span class="string">'+'</span>, label=<span class="string">'label2'</span>)</span><br><span class="line">plt.legend(loc=<span class="number">2</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-<p><img src="机器学习之K均值-K-Means-算法/机器学习值K均值算法图片03.png" alt="机器学习值K均值算法图片03"></p>
+<p><img src="/2018/05/12/机器学习之K均值-K-Means-算法/机器学习值K均值算法图片03.png" alt="机器学习值K均值算法图片03"></p>
 <h3 id="7-K-Means算法优缺点"><a href="#7-K-Means算法优缺点" class="headerlink" title="7.K-Means算法优缺点"></a>7.K-Means算法优缺点</h3><h4 id="7-1优点"><a href="#7-1优点" class="headerlink" title="7.1优点"></a>7.1优点</h4><ul>
 <li><p>聚类效果较优。</p>
 </li>
@@ -868,7 +868,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数"></span>
+    <span title="站点总字数">138k</span>
   
 
   
