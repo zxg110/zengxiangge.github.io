@@ -129,14 +129,14 @@
 <meta property="og:site_name" content="谓之小一">
 <meta property="og:description" content="1.决策树简介我们已有如下所示数据集，特征属性包含天气、温度、湿度、风速，然后根据这些数据去分类或预测能否去打高尔夫球，针对此类问题你会怎么解决呢。    序号 天气 温度 湿度 风速 高尔夫     1 晴 炎热 高 弱 进行   2 晴 炎热 高 强 进行   3 阴 炎热 高 弱 取消   4 雨 适中 高 弱 取消   5 雨 寒冷 正常 弱 取消   6 雨 寒冷 正常 强 进行   7">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/04/19/机器学习之决策树-C4-5算法/机器学习之决策树-C4-5算法/机器学习之决策树图片01.png">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/04/19/机器学习之决策树-C4-5算法/机器学习之决策树-C4-5算法/机器学习之决策树图片02.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/04/19/机器学习之决策树-C4-5算法/机器学习之决策树图片01.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/04/19/机器学习之决策树-C4-5算法/机器学习之决策树图片02.png">
 <meta property="og:image" content="http://p66yyzg4i.bkt.clouddn.com/%E6%8E%A8%E5%B9%BF.png">
 <meta property="og:updated_time" content="2018-06-07T17:52:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习之决策树(C4.5算法)">
 <meta name="twitter:description" content="1.决策树简介我们已有如下所示数据集，特征属性包含天气、温度、湿度、风速，然后根据这些数据去分类或预测能否去打高尔夫球，针对此类问题你会怎么解决呢。    序号 天气 温度 湿度 风速 高尔夫     1 晴 炎热 高 弱 进行   2 晴 炎热 高 强 进行   3 阴 炎热 高 弱 取消   4 雨 适中 高 弱 取消   5 雨 寒冷 正常 弱 取消   6 雨 寒冷 正常 强 进行   7">
-<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/04/19/机器学习之决策树-C4-5算法/机器学习之决策树-C4-5算法/机器学习之决策树图片01.png">
+<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/04/19/机器学习之决策树-C4-5算法/机器学习之决策树图片01.png">
 
 
 
@@ -636,7 +636,7 @@
 </tbody>
 </table>
 <p>正当你苦思冥想之时，天空之中突然飘来一张决策图，发现这图好像一张倒着的树啊，于是你命名为决策树。你发现可直接根据决策树得到相应结果，高兴的像个300斤的孩子。但下次再面临这样的问题时，还能够那么好运嘛？于是你陷入苦苦思考之中，怎样才能得到分类决策树呢。</p>
-<p><img src="机器学习之决策树-C4-5算法/机器学习之决策树图片01.png" alt="机器学习之决策树图片01"></p>
+<p><img src="/2018/04/19/机器学习之决策树-C4-5算法/机器学习之决策树图片01.png" alt="机器学习之决策树图片01"></p>
 <h3 id="2-C4-5算法"><a href="#2-C4-5算法" class="headerlink" title="2.C4.5算法"></a>2.C4.5算法</h3><p><strong>上古之神赐予你智慧</strong>：C4.5是一系列用在机器学习和数据挖掘中分类问题的算法，它的目标是监督学习。即给定一个数据集，其中的每一个元组都能用一组属性值描述，每一个元组属于一个互斥的类别中的某一类。C4.5的目标是通过学习，找到一个从属性值到类别的映射关系，并且这个映射能够用于对新的类别未知的实体进行分类。</p>
 <p>C4.5是在ID3的基础上提出的。ID3算法用来构造决策树。决策树是一种类似流程图的树结构，其中每个内部节点（非树叶节点）表示在一个属性上的测试，每个分枝代表一个测试输出，而每个树叶节点存放一个类标号。一旦建立好决策树，对于一个未给定类标号的元组，跟踪一条有根节点到叶节点的路径，该叶节点就存放着该元组的预测。上述数据集有4个属性，属性集合A={天气、温度、湿度、风速}，类别集合D={进行、取消}。我们先做一些假设</p>
 <ul>
@@ -677,7 +677,7 @@
 <p>把子树替换成叶子节点后，该叶子的误判次数也是伯努利分布，其概率误判率为(E+0.5)/N，因此叶子节点的误判次数均值为<br>$$<br>E(leaf_err_count)=N*e<br>$$<br>使用训练数据时，子树总是比替换为一个叶节点后产生的误差小，但是使用校正后有误差计算方法却并非如此，当子树的误判个数减去标准差后大于对应叶节点的误判个数，就决定剪枝<br>$$<br>E(subtree_err_count)-var(subtree_err_count)&gt;E(leaf_err_count)<br>$$<br>上述条件就是剪枝的标准。当然并不一定非要减去标准差，可以给定任意的置信区间，我们设定一定的显著性因子，就可以估算出误判次数的上下界。</p>
 <h3 id="4-Sklearn实现决策树"><a href="#4-Sklearn实现决策树" class="headerlink" title="4.Sklearn实现决策树"></a>4.Sklearn实现决策树</h3><p>我们以sklearn中iris数据作为训练集，iris属性特征包括花萼长度、花萼宽度、花瓣长度、花瓣宽度，类别共三类，分别为Setosa、Versicolour、Virginca。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> tree</span><br><span class="line"></span><br><span class="line"><span class="comment">#引入数据</span></span><br><span class="line">iris=load_iris()</span><br><span class="line">X=iris.data</span><br><span class="line">y=iris.target</span><br><span class="line"></span><br><span class="line"><span class="comment">#训练数据和模型,采用ID3或C4.5训练</span></span><br><span class="line">clf=tree.DecisionTreeClassifier(criterion=<span class="string">'entropy'</span>)</span><br><span class="line">clf=clf.fit(X,y)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#引入graphviz模块用来导出图,结果图如下所示</span></span><br><span class="line"><span class="keyword">import</span> graphviz</span><br><span class="line">dot_data=tree.export_graphviz(clf,out_file=<span class="keyword">None</span>,</span><br><span class="line">                              feature_names=iris.feature_names,</span><br><span class="line">                              class_names=iris.target_names,</span><br><span class="line">                              filled=<span class="keyword">True</span>,rounded=<span class="keyword">True</span>,</span><br><span class="line">                              special_characters=<span class="keyword">True</span>)</span><br><span class="line"></span><br><span class="line">graph=graphviz.Source(dot_data)</span><br><span class="line">graph.view()</span><br></pre></td></tr></table></figure>
-<p><img src="机器学习之决策树-C4-5算法/机器学习之决策树图片02.png" alt="机器学习之决策树图片02"></p>
+<p><img src="/2018/04/19/机器学习之决策树-C4-5算法/机器学习之决策树图片02.png" alt="机器学习之决策树图片02"></p>
 <h3 id="5-实际使用技巧"><a href="#5-实际使用技巧" class="headerlink" title="5.实际使用技巧"></a>5.实际使用技巧</h3><ul>
 <li>对于拥有大量特征的数据决策树会出现过拟合的现象。获得一个合适的样本比例和特征数量十分重要，因为在高维空间中只有少量的样本的树是十分容易过拟合的。</li>
 <li>训练之前平衡数据集，以防止决策树偏向于主导类。可以通过从每个类中抽取相等数量的样本来进行类平衡，或者优选地通过将每个类的样本权重 (<code>sample_weight</code>) 的和归一化为相同的值。</li>
@@ -818,7 +818,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -841,7 +841,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -878,7 +880,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -970,7 +974,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">143k</span>
+    <span title="站点总字数">147k</span>
   
 
   

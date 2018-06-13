@@ -129,13 +129,13 @@
 <meta property="og:site_name" content="谓之小一">
 <meta property="og:description" content="1.随机森林简介随机森林(Random Forest)是一个非常灵活的机器学习方法，从市场营销到医疗保险有着众多的应用。例如用于市场营销对客户获取和存留建模或预测病人的疾病风险和易感性。随机森林能够用于分类和回归问题，可以处理大量特征，并能够帮助估计用于建模数据变量的重要性。我们先了解随机森林中森林和随机的概念。 1.1集成学习集成学习是将多个模型进行组合来解决单一的预测问题。其原理是生成多个分类">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://weizhixiaoyi.com/2018/04/30/机器学习之随机森林/机器学习之随机森林/机器学习之随机森林图片01.png">
+<meta property="og:image" content="https://weizhixiaoyi.com/2018/04/30/机器学习之随机森林/机器学习之随机森林图片01.png">
 <meta property="og:image" content="http://p66yyzg4i.bkt.clouddn.com/%E6%8E%A8%E5%B9%BF.png">
 <meta property="og:updated_time" content="2018-06-07T17:52:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习之随机森林">
 <meta name="twitter:description" content="1.随机森林简介随机森林(Random Forest)是一个非常灵活的机器学习方法，从市场营销到医疗保险有着众多的应用。例如用于市场营销对客户获取和存留建模或预测病人的疾病风险和易感性。随机森林能够用于分类和回归问题，可以处理大量特征，并能够帮助估计用于建模数据变量的重要性。我们先了解随机森林中森林和随机的概念。 1.1集成学习集成学习是将多个模型进行组合来解决单一的预测问题。其原理是生成多个分类">
-<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/04/30/机器学习之随机森林/机器学习之随机森林/机器学习之随机森林图片01.png">
+<meta name="twitter:image" content="https://weizhixiaoyi.com/2018/04/30/机器学习之随机森林/机器学习之随机森林图片01.png">
 
 
 
@@ -520,7 +520,7 @@
 <li>重复以上两步m次，生成m棵决策树，形成随机森林，其中生成的决策树不剪枝。</li>
 <li>对于新数据，经过每棵决策树投票分类。</li>
 </ul>
-<p><img src="机器学习之随机森林/机器学习之随机森林图片01.png" alt="机器学习之随机森林图片01"></p>
+<p><img src="/2018/04/30/机器学习之随机森林/机器学习之随机森林图片01.png" alt="机器学习之随机森林图片01"></p>
 <h3 id="2-CART算法"><a href="#2-CART算法" class="headerlink" title="2.CART算法"></a>2.CART算法</h3><p>随机森林包含众多决策树，能够用于<strong>分类</strong>和<strong>回归</strong>问题。决策树算法一般包括ID3、C4.5、CART算法，这里我们给出CART(分类与回归树)算法的详细推导过程。</p>
 <h4 id="2-1CART分类树算法推导"><a href="#2-1CART分类树算法推导" class="headerlink" title="2.1CART分类树算法推导"></a>2.1CART分类树算法推导</h4><p>CART分类树预测离散型数据，采用基尼指数选择最优特征，同时决定该特征的最优二值切分点。分类过程中，假设有K个类，样本点属于第k个类的概率为Pk，则概率分布的基尼指数定义为<br>$$<br>Gini(p)=\sum_{k=1}^{m}p_k(1-p_k)=1-\sum_{k=1}^{K}p_{k}^{2}<br>$$<br>根据基尼指数定义，可以得到样本集合D的基尼指数，其中Ck表示数据集D中属于第k类的样本子集。<br>$$<br>Gini(D)=1-\sum_{k=1}^{K}\left(\frac{|C_k|}{|D|} \right)^2<br>$$<br>如果数据集D根据特征A在某一取值a上进行分割，得到D1,D2两部分后，那么在特征A下集合D的基尼系数如下所示。其中基尼系数Gini(D)表示集合D的不确定性，基尼系数Gini(D,A)表示A=a分割后集合D的不确定性。基尼指数越大，样本集合的不确定性越大。<br>$$<br>Gain_Gini(D,A)=\frac{|D1|}{|D|}Gini(D_1)+\frac{|D1|}{|D|}Gini(D_2)<br>$$<br>对于属性A，分别计算任意属性值将数据集划分为两部分之后的Gain_Gini，选取其中的最小值，作为属性A得到的最优二分方案。然后对于训练集S，计算所有属性的最优二分方案，选取其中的最小值，作为样本及S的最优二分方案。<br>$$<br>\min_{i\epsilon A}(Gain_Gini(D,A))<br>$$</p>
 <p>$$<br>\min_{A\epsilon Attribute}(\min_{i\epsilon A}(Gain_Gini(D,A)))<br>$$</p>
@@ -891,7 +891,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">23</span>
+                    <span class="site-state-item-count">24</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -914,7 +914,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">5</span>
+                      
+                    
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -951,7 +953,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">12</span>
+                      
+                    
+                    <span class="site-state-item-count">13</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1043,7 +1047,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">143k</span>
+    <span title="站点总字数">147k</span>
   
 
   
