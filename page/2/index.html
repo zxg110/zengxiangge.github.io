@@ -672,7 +672,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">7.5k</span>
+                <span title="本文字数">5.3k</span>
               
 
               
@@ -686,7 +686,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">12 分钟</span>
+                <span title="阅读时长">9 分钟</span>
               
             </div>
           
@@ -872,7 +872,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">6.5k</span>
+                <span title="本文字数">3.8k</span>
               
 
               
@@ -886,7 +886,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">11 分钟</span>
+                <span title="阅读时长">6 分钟</span>
               
             </div>
           
@@ -1075,7 +1075,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">5.7k</span>
+                <span title="本文字数">3.1k</span>
               
 
               
@@ -1089,7 +1089,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">10 分钟</span>
+                <span title="阅读时长">5 分钟</span>
               
             </div>
           
@@ -1117,7 +1117,8 @@
 如果待预测分类是连续性数据，则CART生成回归决策树。
 
 2.CART分类树2.1算法详解CART分类树预测分类离散型数据，采用基尼指数选择最优特征，同时决定该特征的最优二值切分点。分类过程中，假设有K个类，样本点属于第k个类的概率为Pk，则概率分布的基尼指数定义为
-$$Gini(p)=\sum_{k=1}^{m}p_k(1-p_k)=1-\sum_{k=1}^{K}p_{k}^{2}$$根据基尼指数定义，可以得到样本集合D的基尼指数，其中Ck表示数据集D中属于第k类的样
+
+Gini(p)=\sum_{k=1}^{m}p_k(1-p_k)=1-\sum_{k=1}^{K}p_{k}^{2}根据基尼指数定义，可以得到样本集合D的基尼指数，其中Ck表示数据集D中属于第k类的样本子集
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1280,7 +1281,7 @@ $$Gini(p)=\sum_{k=1}^{m}p_k(1-p_k)=1-\sum_{k=1}^{K}p_{k}^{2}$$根据基尼指数
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">5.4k</span>
+                <span title="本文字数">5.3k</span>
               
 
               
@@ -1317,6 +1318,7 @@ $$Gini(p)=\sum_{k=1}^{m}p_k(1-p_k)=1-\sum_{k=1}^{K}p_{k}^{2}$$根据基尼指数
         
           
           1.决策树简介我们已有如下所示数据集，特征属性包含天气、温度、湿度、风速，然后根据这些数据去分类或预测能否去打高尔夫球，针对此类问题你会怎么解决呢。
+
 
 
 
@@ -1443,9 +1445,10 @@ $$Gini(p)=\sum_{k=1}^{m}p_k(1-p_k)=1-\sum_{k=1}^{K}p_{k}^{2}$$根据基尼指数
 
 
 
+
 正当你苦思冥想之时，天空之中突然飘来一张决策图，发现这图好像一张倒着的树啊，于是你命名为决策树。你发现可直接根据决策树得到相应结果，高兴的像个300斤的孩子。但下次再面临这样的问题时，还能够那么好运嘛？于是你陷入苦苦思考之中，怎样才能得到分类决策树呢。
 
-2.C4.5算法上古之神赐予你智慧：C4.5是一系列用在机器学习和数
+2.C4.5算法上古之神赐予你智慧：C4.5是一系列用在机器学习
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -1817,7 +1820,7 @@ $$Gini(p)=\sum_{k=1}^{m}p_k(1-p_k)=1-\sum_{k=1}^{K}p_{k}^{2}$$根据基尼指数
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">8.2k</span>
+                <span title="本文字数">8.1k</span>
               
 
               
@@ -2058,8 +2061,11 @@ $$Gini(p)=\sum_{k=1}^{m}p_k(1-p_k)=1-\sum_{k=1}^{K}p_{k}^{2}$$根据基尼指数
           我们思考这样一个问题，给两个标签，蓝色和红色点，数据有两个特征(x,y)。我们想要一个分类器，给定一对(x,y)，能找到很好的分类边界，判断是蓝色点还是红色点。对于下图的数据，我们如何解决呢。本文通过引入Support Vector Machine（SVM）算法来详解此类问题。
 
 1.SVM损失函数针对前面介绍的机器学习之线性回归、机器学习之Logistic回归，我们已经了解Cost Function的概念，这里我们利用Logistic Regression的损失函数来引入SVM损失函数。
-首先我们先复习下Logistic Regression Function$$h_{\theta}=\frac{1}{1+e^{-\theta^Tx}}$$如果$y=1$，我们希望$h_{\theta}\approx1$，那么$\theta^Tx\gg0$。如果$y=0$，我们希望$h_{\theta}\approx0$，那么$\theta^Tx\ll0$。我们以Logistic Regression为例
-$$LR Cost Example=-\left( (ylogh_\theta(x))+(1-y
+首先我们先复习下Logistic Regression Function
+
+h_{\theta}=\frac{1}{1+e^{-\theta^Tx}}如果$y=1$，我们希望$h_{\theta}\approx1$，那么$\theta^Tx\gg0$。如果$y=0$，我们希望$h_{\theta}\approx0$，那么$\theta^Tx\ll0$。我们以Logistic Regression为例
+
+LR Cost Example=-\left( (ylogh_\theta(x))+(1-y)lo
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -2155,7 +2161,7 @@ $$LR Cost Example=-\left( (ylogh_\theta(x))+(1-y
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2299,7 +2305,7 @@ $$LR Cost Example=-\left( (ylogh_\theta(x))+(1-y
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">149k</span>
+    <span title="站点总字数">141k</span>
   
 
   

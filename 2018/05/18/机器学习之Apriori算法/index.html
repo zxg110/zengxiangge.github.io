@@ -509,22 +509,22 @@
       
         <h3 id="1-Apriori算法简介"><a href="#1-Apriori算法简介" class="headerlink" title="1.Apriori算法简介"></a>1.Apriori算法简介</h3><p><strong>Apriori</strong>算法是常用于挖掘出数据关联规则的算法，能够发现事物数据库中频繁出现的数据集，这些联系构成的规则可帮助用户找出某些行为特征，以便进行企业决策。例如，某食品商店希望发现顾客的购买行为，通过购物篮分析得到<strong>大部分顾客会在一次购物中同时购买面包和牛奶</strong>，那么该商店便可以通过降价促销面包的同时提高面包和牛奶的销量。了解Apriori算法推导之前，我们先介绍一些基本概念。</p>
 <ul>
-<li><strong>事务数据库：</strong>设$I={ i_1,i_2,…,i_m }$是一个全局项的集合，事物数据库$D={ t_1,t_2,..,t_n }$是一个事务的集合，每个事务$t_i(1\le i \le n)$都对应$I$上的一个子集，例如$t_1={ i_1,i_3,i_7}$。</li>
-<li><p><strong>关联规则：</strong>关联规则表示项之间的关系，是形如$X\rightarrow Y​$的蕴含表达式，其中$X​$和$Y​$是不相交的项集，$X​$称为规则的前件，$Y​$称为规则的后件。例如${ cereal,milk}\rightarrow {fruit }​$关联规则表示购买谷类食品和牛奶的人也会购买水果。通常关联规则的强度可以用支持度和置信度来度量。</p>
+<li><strong>事务数据库：</strong>设$I=\{ i_1,i_2,…,i_m \}$是一个全局项的集合，事物数据库$D=\{ t_1,t_2,..,t_n \}$是一个事务的集合，每个事务$t_i(1\le i \le n)$都对应$I$上的一个子集，例如$t_1=\{ i_1,i_3,i_7\}$。</li>
+<li><p><strong>关联规则：</strong>关联规则表示项之间的关系，是形如$X\rightarrow Y​$的蕴含表达式，其中$X​$和$Y​$是不相交的项集，$X​$称为规则的前件，$Y​$称为规则的后件。例如$\{ cereal,milk\}\rightarrow \{fruit \}​$关联规则表示购买谷类食品和牛奶的人也会购买水果。通常关联规则的强度可以用支持度和置信度来度量。</p>
 </li>
 <li><p><strong>支持度：</strong>支持度表示关联数据在数据集中出现的次数或所占的比重。</p>
 </li>
 </ul>
-<p>$$<br>support(X\rightarrow Y)=P(X\cup Y)=\frac{|X\cup Y|}{|D|}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+support(X\rightarrow Y)=P(X\cup Y)=\frac{|X\cup Y|}{|D|}</script><ul>
 <li><strong>置信度：</strong>置信度表示$Y$数据出现后，$X$数据出现的可能性，也可以说是数据的条件概率。</li>
 </ul>
-<p>$$<br>confidence(X\Leftarrow Y)=P(X|Y)=\frac{P(XY)}{P(Y)}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+confidence(X\Leftarrow Y)=P(X|Y)=\frac{P(XY)}{P(Y)}</script><ul>
 <li><strong>提升度：</strong>提升度体现$X$和$Y$之间的关联关系，提升度大于1表示$X$和$Y$之间具有强关联关系，提升度小于等于1表示$X$和$Y$之间无有效的强关联关系。</li>
 </ul>
-<p>$$<br>lift(X \Leftarrow Y)=\frac{confidence(X \Leftarrow Y)}{P(X)}=\frac{P(XY)}{P(X)P(Y)}<br>$$</p>
-<ul>
+<script type="math/tex; mode=display">
+lift(X \Leftarrow Y)=\frac{confidence(X \Leftarrow Y)}{P(X)}=\frac{P(XY)}{P(X)P(Y)}</script><ul>
 <li><strong>强关联规则：</strong>满足最小支持度和最小置信度的关联规则。</li>
 </ul>
 <p>关联规则的挖掘目标是<strong>找出所有的频繁项集</strong>和<strong>根据频繁项集产生强关联规则</strong>。对于Apriori算法来说，其目标是找出所有的频繁项集，因此对于数据集合中的频繁数据集，我们需要自定义评估标准来找出频繁项集，常用的评估标准就是用上述介绍的支持度。</p>
@@ -688,7 +688,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -848,7 +848,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">149k</span>
+    <span title="站点总字数">141k</span>
   
 
   

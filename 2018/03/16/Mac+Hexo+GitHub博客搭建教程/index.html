@@ -528,7 +528,7 @@
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">npm</span> <span class="selector-tag">-v</span></span><br><span class="line">5<span class="selector-class">.6</span><span class="selector-class">.0</span></span><br></pre></td></tr></table></figure>
 <p>Git官网下载相应文件根据提示直接进行安装，检查git是否安装成功，直接查看git版本即可。</p>
 <blockquote>
-<p>Git –version </p>
+<p>Git —version </p>
 <p>git version 2.15.0</p>
 </blockquote>
 <h4 id="3-2安装Hexo"><a href="#3-2安装Hexo" class="headerlink" title="3.2安装Hexo"></a>3.2安装Hexo</h4><p>Node.js和Git都安装成功后开始安装Hexo。安装时注意权限问题，加上sudo，其中-g表示全局安装。</p>
@@ -555,7 +555,7 @@
 <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">username <span class="keyword">for</span> <span class="symbol">'https</span>:<span class="comment">//github.com':</span></span><br><span class="line">password <span class="keyword">for</span> <span class="symbol">'https</span>:<span class="comment">//github.com':</span></span><br></pre></td></tr></table></figure>
 <p><code>hexo d</code>执行成功后便可通过<a href="https://weizhixiaoyi.github.io访问博客，看到的内容和http://localhost:4000相同。" target="_blank" rel="noopener">https://weizhixiaoyi.github.io访问博客，看到的内容和http://localhost:4000相同。</a></p>
 <h4 id="4-2添加ssh-keys到GitHub"><a href="#4-2添加ssh-keys到GitHub" class="headerlink" title="4.2添加ssh keys到GitHub"></a>4.2添加ssh keys到GitHub</h4><p>添加ssh key后不需要每次更新博客再输入用户名和密码。首先检查本地是否包含ssh keys。如果存在则直接将ssh key添加到GitHub之中，否则进入新生成ssh key。</p>
-<p>执行下述命令生成新的ssh key，将<a href="mailto:`your_email@example.com" target="_blank" rel="noopener">`your_email@example.com</a><code>改成自己以注册的GitHub邮箱地址。默认会在</code>~/.ssh/id_rsa.pub<code>中生成</code>id_rsa<code>和</code>id_rsa.pub`文件。</p>
+<p>执行下述命令生成新的ssh key，将<code>your_email@example.com</code>改成自己以注册的GitHub邮箱地址。默认会在<code>~/.ssh/id_rsa.pub</code>中生成<code>id_rsa</code>和<code>id_rsa.pub</code>文件。</p>
 <figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">"your_email@exampl"</span></span><br></pre></td></tr></table></figure>
 <p>Mac下利用<code>open ~/.ssh</code>打开文件夹，打开id_rsa.pub文件，里面的信息即为ssh key，将此信息复制到GitHub的Add ssh key<code>路径GitHub-&gt;Setting-&gt;SSH keys-&gt;add SSH key</code>界面即可。Title里填写任意标题，将复制的内容粘贴到key中，点击Add key完成添加。</p>
 <p>此时本地博客内容便已关联到GitHub之中，本地博客改变之后，通过<code>hexo g</code>和<code>hexo d</code>便可更新到GitHub之中，通过<a href="https://weizhixiaoyi.github.io访问便可看到更新内容。" target="_blank" rel="noopener">https://weizhixiaoyi.github.io访问便可看到更新内容。</a></p>
@@ -753,7 +753,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">25</span>
+                    <span class="site-state-item-count">26</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -913,7 +913,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">149k</span>
+    <span title="站点总字数">141k</span>
   
 
   
