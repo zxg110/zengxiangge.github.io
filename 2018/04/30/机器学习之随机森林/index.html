@@ -131,7 +131,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/04/30/机器学习之随机森林/机器学习之随机森林图片01.png">
 <meta property="og:image" content="http://p66yyzg4i.bkt.clouddn.com/%E6%8E%A8%E5%B9%BF.png">
-<meta property="og:updated_time" content="2018-06-07T17:52:51.000Z">
+<meta property="og:updated_time" content="2018-06-27T03:53:40.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习之随机森林">
 <meta name="twitter:description" content="1.随机森林简介随机森林(Random Forest)是一个非常灵活的机器学习方法，从市场营销到医疗保险有着众多的应用。例如用于市场营销对客户获取和存留建模或预测病人的疾病风险和易感性。随机森林能够用于分类和回归问题，可以处理大量特征，并能够帮助估计用于建模数据变量的重要性。我们先了解随机森林中森林和随机的概念。 1.1集成学习集成学习是将多个模型进行组合来解决单一的预测问题。其原理是生成多个分类">
@@ -646,7 +646,7 @@ Gain\_Gini(D,体温)=\frac{7}{15}*\frac{20}{49}+\frac{8}{15}*\frac{42}{64}</scri
 <script type="math/tex; mode=display">
 D=\{(x_1,y_1),(x_2,y_2),(x_3,y_3),...(x_n,y_n)\}</script><p><strong>选择最优切分变量j与切分点s</strong>：遍历变量j，对规定的切分变量j扫描切分点s，选择使下式得到最小值时的(j,s)对。其中Rm是被划分的输入空间，cm是空间Rm对应的固定输出值。</p>
 <script type="math/tex; mode=display">
-\min_{j,s}[\min_{c_1}\sum _{x_i\epsilon R_i(j,s)}(y_i-c_1)^2+\min_{c_2}\sum _{x_i\epsilon R_i(j,s)}(y_i-c_1)^2]</script><p><strong>用选定的(j,s)对，划分区域并决定相应的输出值</strong></p>
+\min_{j,s}[\min_{c_1}\sum _{x_i\epsilon R_i(j,s)}(y_i-c_1)^2+\min_{c_2}\sum _{x_i\epsilon R_i(j,s)}(y_i-c_2)^2]</script><p><strong>用选定的(j,s)对，划分区域并决定相应的输出值</strong></p>
 <script type="math/tex; mode=display">
 R_1(j,s)=\{x|x^{(j)}\le s\},R_2(j,s)=\{x|x^{(j)} >  s\}</script><script type="math/tex; mode=display">
 \hat{c}_m=\frac{1}{N_m}\sum_{x_i\epsilon R_m(j,s)}y_i</script><script type="math/tex; mode=display">
@@ -692,7 +692,7 @@ f(x)=\sum_{m=1}^{M}\hat{c}_mI(x\epsilon R_m)</script><p>当输入空间划分确
 <script type="math/tex; mode=display">
 c_1=\frac{1}{N_m}\sum_{x_i\epsilon R_m(j,s)}y_i=\frac{1}{1}\sum_{x_i\epsilon R_1(1,1.5)}5.56=5.56</script><script type="math/tex; mode=display">
 c_2=\frac{1}{N_m}\sum_{x_i\epsilon R_m(j,s)}y_i=\frac{1}{9}\sum_{x_i\epsilon R_2(1,1.5)}(5.70+5.91+...+9.05)=7.50</script><script type="math/tex; mode=display">
-m(s)=\min_{j,s}[\min_{c_1}\sum _{x_i\epsilon R_i(j,s)}(y_i-c_1)^2+\min_{c_2}\sum _{x_i\epsilon R_i(j,s)}(y_i-c_1)^2]=0+15.72=15.72</script><p><strong>依次改变(j,s)对，可以得到s及m(s)的计算结果</strong>，如下表所示。</p>
+m(s)=\min_{j,s}[\min_{c_1}\sum _{x_i\epsilon R_i(j,s)}(y_i-c_1)^2+\min_{c_2}\sum _{x_i\epsilon R_i(j,s)}(y_i-c_2)^2]=0+15.72=15.72</script><p><strong>依次改变(j,s)对，可以得到s及m(s)的计算结果</strong>，如下表所示。</p>
 <div class="table-container">
 <table>
 <thead>
@@ -958,7 +958,7 @@ L(y,f_6(x))=\sum_{i=1}^{10}(y_i-f_6(x_i))^2=0.71</script><h3 id="3-Sklearn实现
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">26</span>
+                    <span class="site-state-item-count">27</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -985,7 +985,9 @@ L(y,f_6(x))=\sum_{i=1}^{10}(y_i-f_6(x_i))^2=0.71</script><h3 id="3-Sklearn实现
                     
                       
                     
-                    <span class="site-state-item-count">7</span>
+                      
+                    
+                    <span class="site-state-item-count">8</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -1026,7 +1028,9 @@ L(y,f_6(x))=\sum_{i=1}^{10}(y_i-f_6(x_i))^2=0.71</script><h3 id="3-Sklearn实现
                     
                       
                     
-                    <span class="site-state-item-count">14</span>
+                      
+                    
+                    <span class="site-state-item-count">15</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -1118,7 +1122,7 @@ L(y,f_6(x))=\sum_{i=1}^{10}(y_i-f_6(x_i))^2=0.71</script><h3 id="3-Sklearn实现
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">141k</span>
+    <span title="站点总字数">142k</span>
   
 
   
