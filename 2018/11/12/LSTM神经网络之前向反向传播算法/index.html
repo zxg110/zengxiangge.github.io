@@ -139,7 +139,7 @@
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/11/12/LSTM神经网络之前向反向传播算法/LSTM神经网络之前向反向传播算法图片08.png">
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/11/12/LSTM神经网络之前向反向传播算法/LSTM神经网络之前向反向传播算法图片09.png">
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/11/12/LSTM神经网络之前向反向传播算法/推广.png">
-<meta property="og:updated_time" content="2018-11-15T12:57:03.786Z">
+<meta property="og:updated_time" content="2018-11-15T13:34:20.112Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LSTM神经网络之前向反向传播算法">
 <meta name="twitter:description" content="上篇文章我们已经学习了循环神经网络的原理，并指出RNN存在严重的梯度爆炸和梯度消失问题，因此很难处理长序列的数据。本篇文章，我们将学习长短期记忆网络(LSTM,Long Short Term Memory)，看LSTM解决RNN所带来的梯度消失和梯度爆炸问题。 1.从RNN到LSTMRNN模型具有如下所示的结构，其中每个索引位置t都有一个隐藏状态$h^{(t)}$。  如果省略每层的$o^{(t)">
@@ -515,8 +515,8 @@
       
 
       
-        <p>上篇文章我们已经学习了<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483975&amp;idx=1&amp;sn=9951f5f1d9e8ed8d527a9f5c043a2f12&amp;chksm=fcd7d1b1cba058a7fdbe5121a8a30792ca68c47157c911d5f4baa16dd416e8d0f23cc51a2214&amp;token=1780751334&amp;lang=zh_CN#rd" target="_blank" rel="noopener">循环神经网络</a>的原理，并指出RNN存在严重的梯度爆炸和梯度消失问题，因此很难处理长序列的数据。本篇文章，我们将学习长短期记忆网络(<strong>LSTM,Long Short Term Memory)</strong>，看LSTM解决RNN所带来的梯度消失和梯度爆炸问题。</p>
-<h3 id="1-从RNN到LSTM"><a href="#1-从RNN到LSTM" class="headerlink" title="1.从RNN到LSTM"></a>1.从RNN到LSTM</h3><p><a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483975&amp;idx=1&amp;sn=9951f5f1d9e8ed8d527a9f5c043a2f12&amp;chksm=fcd7d1b1cba058a7fdbe5121a8a30792ca68c47157c911d5f4baa16dd416e8d0f23cc51a2214&amp;token=1780751334&amp;lang=zh_CN#rd" target="_blank" rel="noopener">RNN</a>模型具有如下所示的结构，其中每个索引位置t都有一个隐藏状态$h^{(t)}$。</p>
+        <p>上篇文章我们已经学习了<a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483980&amp;idx=1&amp;sn=55041808b3f6cd25a6bb40a9586e121f&amp;chksm=fcd7d1bacba058ac6e9f077f5a8e606eaa032b0fd5d86964c26b7ff83433c179ebc6f3d5f439&amp;token=749555039&amp;lang=zh_CN#rd" target="_blank" rel="noopener">循环神经网络</a>的原理，并指出RNN存在严重的梯度爆炸和梯度消失问题，因此很难处理长序列的数据。本篇文章，我们将学习长短期记忆网络(<strong>LSTM,Long Short Term Memory)</strong>，看LSTM解决RNN所带来的梯度消失和梯度爆炸问题。</p>
+<h3 id="1-从RNN到LSTM"><a href="#1-从RNN到LSTM" class="headerlink" title="1.从RNN到LSTM"></a>1.从RNN到LSTM</h3><p><a href="https://mp.weixin.qq.com/s?__biz=MzU3MjA2NTQzMw==&amp;mid=2247483980&amp;idx=1&amp;sn=55041808b3f6cd25a6bb40a9586e121f&amp;chksm=fcd7d1bacba058ac6e9f077f5a8e606eaa032b0fd5d86964c26b7ff83433c179ebc6f3d5f439&amp;token=749555039&amp;lang=zh_CN#rd" target="_blank" rel="noopener">RNN</a>模型具有如下所示的结构，其中每个索引位置t都有一个隐藏状态$h^{(t)}$。</p>
 <p><img src="/2018/11/12/LSTM神经网络之前向反向传播算法/LSTM神经网络之前向反向传播算法图片01.png" alt="LSTM神经网络之前向反向传播算法图片01"></p>
 <p>如果省略每层的$o^{(t)},L^{(t)},y^{(t)}$，则RNN模型可以简化到如下所示的结构。其中隐藏状态的$h^{(t)}$由$x^{(t)}$和$h^{(t-1)}$得到，得到$h^{(t)}$后可用于计算当前层的模型损失和下一层的$h^{(t+1)}$。</p>
 <p><img src="/2018/11/12/LSTM神经网络之前向反向传播算法/LSTM神经网络之前向反向传播算法图片02.png" alt="LSTM神经网络之前向反向传播算法图片02"></p>
