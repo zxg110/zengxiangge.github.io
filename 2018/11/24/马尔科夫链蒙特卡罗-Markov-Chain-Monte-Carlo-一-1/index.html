@@ -134,7 +134,7 @@
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片03.png">
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片04.png">
 <meta property="og:image" content="https://weizhixiaoyi.com/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/推广.png">
-<meta property="og:updated_time" content="2018-12-01T13:24:13.948Z">
+<meta property="og:updated_time" content="2018-12-01T13:36:12.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="马尔科夫链蒙特卡罗(Markov Chain Monte Carlo)(一)">
 <meta name="twitter:description" content="1.MCMC简介马尔可夫链蒙克卡罗(Markov Chain Monte Carlo,MCMC)是一种随机采样方法，在机器学习、深度学习及自然语言处理等领域都有广泛的应用，是很多复杂算法求解的基础，例如受限玻尔兹曼机(RBM)便是用MCMC来做一些复杂算法的近似求解。在具体讲解什么是MCMC之前，我们先看看MCMC可以解决什么样的问题，为什么需要MCMC方法。 2. 为什么需要MCMC?假如我们需">
@@ -511,8 +511,8 @@
 
       
         <h3 id="1-MCMC简介"><a href="#1-MCMC简介" class="headerlink" title="1.MCMC简介"></a>1.MCMC简介</h3><p><strong>马尔可夫链蒙克卡罗(Markov Chain Monte Carlo,MCMC)</strong>是一种随机采样方法，在机器学习、深度学习及自然语言处理等领域都有广泛的应用，是很多复杂算法求解的基础，例如受限玻尔兹曼机(RBM)便是用MCMC来做一些复杂算法的近似求解。在具体讲解什么是MCMC之前，我们先看看MCMC可以解决什么样的问题，为什么需要MCMC方法。</p>
-<h3 id="2-为什么需要MCMC"><a href="#2-为什么需要MCMC" class="headerlink" title="2. 为什么需要MCMC?"></a>2. 为什么需要MCMC?</h3><p>假如我们需要对一维随机变量$X$进行随机采样，$X$的样本空间是$\{1,2,3\}$，概率分别是$\{\frac{1}{2},\frac{1}{4},\frac{1}{4}\}$。那么我们只需要根据各离散值的概率大小对[0,1]区间进行等比例划分，例如划分为[0,0.5],[0.5,0.75],[0.75,1]三个区间，然后通过计算机产生[0,1]之间的伪随机数，根据伪随机数的落点便可完成一次采样。下面问题变得复杂一些，假如$X$是连续分布，概率密度函数(PDF)是$f(X)$，那么如何采样呢。</p>
-<p>你肯定会想到累积分布函数(CDF)，表达式为$P(x) = \int _{-\infty} ^{x} f(x) dx$。然后在[0,1]间随机生成一个数$a$，求使得$x=CDF^{-1}(u)$，此时便可得到一个采样结果。例如以高斯分布为例进行采样，高斯分布的概率密度函数如下所示</p>
+<h3 id="2-为什么需要MCMC"><a href="#2-为什么需要MCMC" class="headerlink" title="2. 为什么需要MCMC?"></a>2. 为什么需要MCMC?</h3><p>假如我们需要对一维随机变量$X$进行随机采样，$X$的样本空间是$\{1,2,3\}$，概率分别是$\{\frac{1}{2},\frac{1}{4},\frac{1}{4}\}$。那么我们只需要根据各离散值的概率大小对[0,1]区间进行等比例划分，例如划分为[0,0.5],[0.5,0.75],[0.75,1]三个区间，然后通过计算机产生[0,1]之间的伪随机数，根据伪随机数的落点便可完成采样。下面问题变得复杂一些，假如$X$是连续分布，概率密度函数(PDF)是$f(X)$，那么如何采样呢。</p>
+<p>你肯定会想到累积分布函数(CDF)，表达式为$P(x) = \int _{-\infty} ^{x} f(x) dx$。然后在[0,1]间随机生成一个数$a$，求使得$x=CDF^{-1}(a)$，此时便可得到一个采样结果。例如以高斯分布为例进行采样，高斯分布的概率密度函数如下所示</p>
 <script type="math/tex; mode=display">
 f(x)= \frac{1}{\sigma \sqrt{2\pi}} exp({- \frac{(x-u)^2}{2 \sigma ^2}})</script><p><img src="/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片01.png" alt="MCMC1图片01"></p>
 <p>累积分布函数如下所示</p>
@@ -525,9 +525,9 @@ P(x) = \frac{1}{\sigma \sqrt{2\pi}} \int _{ -\infty} ^{x} exp({- \frac{(x-u)^2}{
 \theta = \int _{a} ^{b} f(x) dx</script><p><img src="/2018/11/24/马尔科夫链蒙特卡罗-Markov-Chain-Monte-Carlo-一-1/MCMC1图片03.png" alt="MCMC1图片03"></p>
 <p>如果我们很难求解出$f(x)$的原函数，那么这个积分便很难求解，此时我们便利用蒙特卡罗方法来模拟求解近似值，但如何模拟呢？针对上述积分，一个简单的近似求解方法是在[a,b]之间随机的采样一个点，比如$x_0$，然后用$f(x_0)$代表在[a,b]区间上所有$f(x)$的值，那么上面定积分的近似值便为</p>
 <script type="math/tex; mode=display">
-(b-a)f(x_0)</script><p>当然，用一个值来代表[a,b]上面所有$f(x)$的值，这个结果不太准确。因此我们可以采样[a,b]区间的n个值$x_0,x_1,x_3,…,x_{n-1}$，用他们的均值来代表[a,b]区间上所有$f(x)$的值，这样定积分求解的近似值便为</p>
+(b-a)f(x_0)</script><p>当然，用一个值来代表[a,b]上面所有$f(x)$的值，这个结果不太准确。因此我们可以采样[a,b]区间的n个值$x_0,x_1,x_3,…,x_{n-1}$，用他们的均值来代表[a,b]区间上所有$f(x)$的值，这样定积分求解的近似值为</p>
 <script type="math/tex; mode=display">
-\frac{b-a}{n} \sum _{i=0}^{n-1}f(x_i)</script><p>虽然上面的解可以在一定程度上求解近似值，但它隐含一个假设，即x在[a,b]之间是均匀分布的。而大多数情况下，x在[a,b]之间不是均匀分布的，如果继续用上面的方法，模拟求出的结果很可能和结果相差甚远，那怎么解决这个问题呢？如果我们可以得到x在[a,b]的概率分布函数p(x)，那么我们的定积分求和可以转换为</p>
+\frac{b-a}{n} \sum _{i=0}^{n-1}f(x_i)</script><p>虽然上面的方法可以求解近似值，但它隐含一个假设，即x在[a,b]之间是均匀分布的。而大多数情况下，x在[a,b]之间不是均匀分布的，如果继续用上面的方法，模拟求出的结果很可能和结果相差甚远，那怎么解决这个问题呢？如果我们可以得到x在[a,b]的概率分布函数p(x)，那么我们的定积分求和可以转换为</p>
 <script type="math/tex; mode=display">
 \theta = \int _{a} ^{b} f(x) dx = \int _{a} ^{b} \frac{f(x)}{p(x)}p(x)dx \approx \frac{1}{n} \sum_{i=0}^{n-1}\frac{f(x_i)}{p(x_i)}</script><p>上述是蒙特卡罗连续函数的形式，当然在<strong>离散时一样成立</strong>。可以看出，最上面我们假设x在[a,b]之间时均匀分布的时候$p(x_i)=\frac{1}{b-a}$，带入我们有概率分布的蒙特卡罗积分，可以得到</p>
 <script type="math/tex; mode=display">
